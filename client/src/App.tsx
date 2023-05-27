@@ -1,15 +1,18 @@
 import "./App.css";
 
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-
+import { Footer } from "./components/templates/Footer";
+import { Header } from "./components/templates/Header";
+import { ThemeProvider } from "./components/theme/ThemeProvider";
 
 function App() {
-
-  return <>
-    <Header />
-    <Footer />
-  </>;
+  return (
+    <>
+      <ThemeProvider>
+        <Header />
+        <Footer />
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default App;
