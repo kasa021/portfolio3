@@ -1,4 +1,4 @@
-import { ThemeSwitch } from "../theme/ThemeSeitch";
+import { ThemeSwitch } from "../theme/ThemeSwitch";
 import styles from "./Header.module.css";
 
 export const Header = () => {

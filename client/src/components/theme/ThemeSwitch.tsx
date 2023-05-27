@@ -3,11 +3,13 @@ import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 
 export const ThemeSwitch: React.FC = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const themeContext = useContext(ThemeContext);
 
-  if (!setTheme) {
+  if (!themeContext) {
     return null;
   }
+
+  const { theme, setTheme } = themeContext;
 
   return (
     <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
