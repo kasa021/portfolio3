@@ -10,7 +10,7 @@ module.exports = {
   plugins: ["react-refresh", "simple-import-sort"],
   rules: {
     "react-refresh/only-export-components": "warn",
-    'simple-import-sort/imports': 'error',
-    'sort-imports': ['error', { ignoreDeclarationSort: true }]
+    "simple-import-sort/imports": "error",
+    "sort-imports": ["error", { ignoreDeclarationSort: true }],
   },
 };
