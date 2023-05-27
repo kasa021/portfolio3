@@ -1,13 +1,11 @@
-import './App.css'
-import { Header } from './components/Header'
+import "./App.css";
+
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
 
-  return (
-    <>
-      <Header />
-    </>
-  )
+  return <></>;
 }
 
-export default App
+export default App;
