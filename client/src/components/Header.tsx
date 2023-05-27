@@ -1,4 +1,4 @@
-import styles from "./Header.module.css"
+import styles from "./Header.module.css";
 
 export const Header = () => {
   return (
@@ -7,21 +7,13 @@ export const Header = () => {
         <p>kasa&apos;s portfolio</p>
       </div>
       <ul className={styles.list}>
+        <li className={styles.items}>About</li>
+        <li className={styles.items}>Blog</li>
+        <li className={styles.items}>Contact</li>
         <li className={styles.items}>
-          About
-        </li>
-        <li className={styles.items}>
-          Blog
-        </li>
-        <li className={styles.items}>
-          Contact
-        </li>
-        <li className={styles.items}>
-          <button>
-            toggle
-          </button>
+          <button>toggle</button>
         </li>
       </ul>
     </div>
   );
-}
+};
