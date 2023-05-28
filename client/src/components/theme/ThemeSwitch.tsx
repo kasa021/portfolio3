@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { TbMoonFilled, TbSunFilled } from "react-icons/tb";
 
 import { ThemeContext } from "./ThemeContext";
-import  styles  from "./ThemeSwitch.module.css";
+import styles from "./ThemeSwitch.module.css";
 
 export const ThemeSwitch: React.FC = () => {
   const themeContext = useContext(ThemeContext);
@@ -18,7 +18,11 @@ export const ThemeSwitch: React.FC = () => {
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className={styles.button}
     >
-      {theme === "dark" ? <TbSunFilled  className={styles.icon} /> : <TbMoonFilled className={styles.icon} />}
+      {theme === "dark" ? (
+        <TbSunFilled className={styles.icon} />
+      ) : (
+        <TbMoonFilled className={styles.icon} />
+      )}
     </button>
   );
 };
