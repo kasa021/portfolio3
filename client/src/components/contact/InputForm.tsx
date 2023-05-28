@@ -1,0 +1,82 @@
+import axios from "axios";
+import React, { useState } from "react";
+
+import styles from "./InputForm.module.css";
+
+export const InputForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const data = {
+      name: name,
+      email: email,
+      message: message,
+    };
+    axios
+      .post("http://localhost:3001/message", data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  return (
+    <>
+      <section>
+        <h1 className={styles.contact}>Contact</h1>
+        <form>
+          <div className={styles.box}>
+            <label htmlFor="name" className={styles.name}>
+              Name
+            </label>
+            <div className={styles.innerBox}>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                onChange={(e) => setName(e.target.value)}
+                // className={styles.inputs}
+              />
+            </div>
+          </div>
+          <div className={styles.box}>
+            <label htmlFor="email" className={styles.email}>
+              Email
+            </label>
+            <div className={styles.innerBox}>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                className={styles.inputs}
+              />
+            </div>
+          </div>
+          <div className={styles.box}>
+            <label htmlFor="message" className={styles.message}>
+              Message
+            </label>
+            <div className={styles.innerTextBox}>
+              <textarea
+                id="message"
+                name="message"
+                rows={10}
+                onChange={(e) => setMessage(e.target.value)}
+                className={styles.textarea}
+              />
+            </div>
+          </div>
+          <button type="submit" onClick={handleSubmit}>
+            <span>Send</span>
+          </button>
+        </form>
+      </section>
+    </>
+  );
+};
