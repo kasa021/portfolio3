@@ -1,23 +1,33 @@
 .contact {
     text-align: center;
+    font-size: 30px;
+    font-weight: 10;
 }
 
 .box {
     display: flex;
     flex-direction: column;
+    width: 50vw;
+    height: 5rem;
+}
+
+.messageBox{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 12rem;
 }
 
 .box .name{
-    text-align: center;
 }
 
 .box .innerBox{
     display: flex;
     justify-content: center;
+    height: 2rem;
 }
 
 .box .email {
-    text-align: center;
 }
 
 .box .message {
@@ -27,5 +37,46 @@
 .box .innerTextBox {
     display: flex;
     justify-content: center;
+}
+
+.section {
+    height: calc(100vh - 8rem);
+    margin: 2rem 0;
+}
+
+.section .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 30rem;
+}
+
+.inputs {
+    width: 50vw;
+    height: 2rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    background-color: var(--color-area);
+}
+
+.textarea {
+    width: 50vw;
+    height: 10rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    background-color: var(--color-area);
+}
+
+
+.btn {
+    width: 5rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    background-color: var(--color-button);
+    color: var(--color-text);
 }
 

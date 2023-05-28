@@ -27,9 +27,9 @@ export const InputForm = () => {
 
   return (
     <>
-      <section>
+      <div className={styles.section}>
         <h1 className={styles.contact}>Contact</h1>
-        <form>
+        <form className={styles.form}>
           <div className={styles.box}>
             <label htmlFor="name" className={styles.name}>
               Name
@@ -40,7 +40,7 @@ export const InputForm = () => {
                 id="name"
                 name="name"
                 onChange={(e) => setName(e.target.value)}
-                // className={styles.inputs}
+                className={styles.inputs}
               />
             </div>
           </div>
@@ -58,7 +58,7 @@ export const InputForm = () => {
               />
             </div>
           </div>
-          <div className={styles.box}>
+          <div className={styles.messageBox}>
             <label htmlFor="message" className={styles.message}>
               Message
             </label>
@@ -72,11 +72,11 @@ export const InputForm = () => {
               />
             </div>
           </div>
-          <button type="submit" onClick={handleSubmit}>
-            <span>Send</span>
+          <button type="submit" onClick={handleSubmit} className={styles.btn}>
+            <span className={styles.btnText}>Send</span>
           </button>
         </form>
-      </section>
+      </div>
     </>
   );
 };
