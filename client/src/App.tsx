@@ -1,6 +1,7 @@
 /* eslint-disable sort-imports */
 import "./App.css";
 
+import { Helmet } from "react-helmet";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { Footer } from "./components/templates/Footer";
@@ -16,6 +17,9 @@ function App() {
     <>
       <Router>
         <ThemeProvider>
+          <Helmet>
+            <title>kasa&apos;s portfolio</title>
+          </Helmet>
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
