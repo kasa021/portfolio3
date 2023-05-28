@@ -1,0 +1,21 @@
+
+:root {
+  --color-background: #ffffff;
+  --color-text: #000000;
+  --color-button: #e7f1f1;
+  --color-icon: #65c2c5;
+  --color-sns: #000000;
+}
+
+[data-theme="dark"] {
+  --color-background: #34373a;
+  --color-text: #ffffff;
+  --color-button: #484d4c;
+  --color-icon: #61afb9;
+  --color-sns: #c5b8b8;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
