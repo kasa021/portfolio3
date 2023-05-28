@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 
 import styles from "./InputForm.module.css";
+import MessageSender from "./MessageSender";
 
 export const InputForm = () => {
   const [name, setName] = useState("");
@@ -10,19 +10,13 @@ export const InputForm = () => {
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const data = {
-      name: name,
-      email: email,
-      message: message,
-    };
-    axios
-      .post("http://localhost:3001/message", data)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+
+    try {
+      const response = await MessageSender(name, email, message);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
