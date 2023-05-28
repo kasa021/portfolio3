@@ -18,7 +18,7 @@ export const ThemeSwitch: React.FC = () => {
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className={styles.button}
     >
-      {theme === "dark" ? <TbSunFilled  className={styles.icon} /> : <TbMoonFilled className={styles.icon} />}
+      {theme === "dark" ? <TbSunFilled /> : <TbMoonFilled />}
     </button>
   );
 };
