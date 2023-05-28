@@ -58,6 +58,7 @@
     border-radius: 0.25rem;
     border: 1px solid #ccc;
     background-color: var(--color-area);
+    color: var(--color-text);
 }
 
 .textarea {
@@ -66,6 +67,7 @@
     border-radius: 0.25rem;
     border: 1px solid #ccc;
     background-color: var(--color-area);
+    color: var(--color-text);
 }
 
 
