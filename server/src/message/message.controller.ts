@@ -9,7 +9,7 @@ export class MessageController {
   ): Promise<void> {
     const webhooks = process.env.DISCORD_WEBHOOK_URL;
     const payload = {
-      content: `Name: ${body.name}\nEmail: ${body.email}\nMessage: ${body.message}`,
+      content: `----------\n${body.name}さんからメッセージが届きました\nEmail: ${body.email}\nMessage: ${body.message}\n----------`,
     };
 
     await axios.post(webhooks, payload);
