@@ -1,0 +1,31 @@
+.contact {
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+}
+
+.box .name{
+    text-align: center;
+}
+
+.box .innerBox{
+    display: flex;
+    justify-content: center;
+}
+
+.box .email {
+    text-align: center;
+}
+
+.box .message {
+    text-align: center;
+}
+
+.box .innerTextBox {
+    display: flex;
+    justify-content: center;
+}
+
