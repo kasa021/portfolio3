@@ -15,7 +15,7 @@ export const Home = () => {
     <div className={styles.container}>
       <div className={styles.image}>
         <img
-          src="../public/me.jpg"
+          src="/me.jpg"
           alt="me"
           style={{ width: "200px", height: "200px" }}
         />
