@@ -1,19 +1,40 @@
 import axios from "axios";
 
-interface MessageSender {
-  name: string;
-  email: string;
-  message: string;
-}
+export const handleSubmit = async (
+  name: string,
+  email: string,
+  message: string
+) => {
+  let errorMessages = "";
 
-const MessageSender = (name: string, email: string, message: string) => {
-  const data = {
-    name: name,
-    email: email,
-    message: message,
-  };
+  if (!/.+/g.test(name)) {
+    errorMessages += "名前を入力してください\n";
+  }
+  if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/g.test(email)) {
+    errorMessages += "メールアドレスを入力してください\n";
+  }
+  if (!/.+/g.test(message)) {
+    errorMessages += "メッセージを入力してください\n";
+  }
 
-  return axios.post("http://localhost:3001/message", data);
+  if (errorMessages) {
+    alert(errorMessages);
+  } else {
+    const data = {
+      name: name,
+      email: email,
+      message: message,
+    };
+
+    axios
+      .post("http://localhost:3001/message", data)
+      .then((response) => {
+        console.log(response);
+        alert("送信しました");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("送信に失敗しました");
+      });
+  }
 };
-
-export default MessageSender;

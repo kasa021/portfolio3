@@ -1,22 +1,17 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 import styles from "./InputForm.module.css";
-import MessageSender from "./MessageSender";
+import { handleSubmit } from "./MessageSender";
 
 export const InputForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleFormSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
-    try {
-      const response = await MessageSender(name, email, message);
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
+    handleSubmit(name, email, message);
   };
 
   return (
@@ -66,7 +61,11 @@ export const InputForm = () => {
               />
             </div>
           </div>
-          <button type="submit" onClick={handleSubmit} className={styles.btn}>
+          <button
+            type="submit"
+            onClick={handleFormSubmit}
+            className={styles.btn}
+          >
             <span className={styles.btnText}>Send</span>
           </button>
         </form>
