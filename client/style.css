@@ -1,0 +1,8 @@
+#root {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4rem;
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
