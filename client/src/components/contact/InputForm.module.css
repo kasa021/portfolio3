@@ -40,7 +40,8 @@
 }
 
 .section {
-    margin: 8rem 0 0 0;
+    padding: 4rem 0 0 0;
+    width: min(1024px,calc(100% - 2rem));
 }
 
 .section .form {
@@ -74,6 +75,7 @@
     width: 5rem;
     height: 2rem;
     border-radius: 0.25rem;
+    margin-bottom: 2rem;
     border: 1px solid #ccc;
     background-color: #fff;
     cursor: pointer;
