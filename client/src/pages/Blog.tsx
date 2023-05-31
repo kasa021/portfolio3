@@ -1,7 +1,10 @@
+import  BlogPost  from "../components/blog/BlogPost";
+
 export const Blog = () => {
   return (
     <div>
-      <h1>Blog</h1>
+      <p>akjldjfakljfd;akljf</p>
+      <BlogPost filename={"test"} />
     </div>
   );
 };
