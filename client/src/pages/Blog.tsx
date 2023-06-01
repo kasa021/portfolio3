@@ -1,10 +1,11 @@
-import  BlogPost  from "../components/blog/BlogPost";
+import { BlogList } from "../components/blog/BlogList";
 
 export const Blog = () => {
   return (
     <div>
       <p>akjldjfakljfd;akljf</p>
-      <BlogPost filename={"test"} />
+      <p>klasjflaksdjfklsajdfl;ksadjf</p>
+      <BlogList />
     </div>
   );
 };
