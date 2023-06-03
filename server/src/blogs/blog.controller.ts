@@ -32,7 +32,7 @@ export class BlogController {
       '..',
       'static',
       'blogs',
-      `${filename}.md`,
+      `${filename}`,
     );
 
     fs.readFile(mdFilePath, 'utf8', (err, data) => {
