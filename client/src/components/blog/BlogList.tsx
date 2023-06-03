@@ -2,12 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-interface Blog {
-  filename: string;
-}
 
 export const BlogList = () => {
-  const [blogList, setBlogList] = useState<Blog[]>([]);
+  const [blogList, setBlogList] = useState<string[]>([]);
    const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,8 +39,8 @@ export const BlogList = () => {
     <div>
       {/* ブログリストをマップしてボタンを表示 */}
       {blogList.map((blog) => (
-        <button key={blog.filename} onClick={() => handleClick(blog.filename)}>
-          {blog.title}
+        <button key={blog} onClick={() => handleClick(blog)}>
+          {blog}
         </button>
       ))}
     </div>
