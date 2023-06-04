@@ -37,7 +37,7 @@ export const BlogList = () => {
       const response = await axios.get(
         `http://localhost:3001/api/blog/${filename}`
       );
-      navigate(`/blog/${filename}`, {
+      navigate(`/blog/${filename.slice(0, -3)}`, {
         state: { markdownContent: response.data },
       });
     } catch (error) {
@@ -45,9 +45,16 @@ export const BlogList = () => {
     }
   };
 
+  const f = () => {
+    navigate(`/blog/2021-08-01-1.md`);
+  };
+
   return (
     <div className={styels.container}>
       <h1>ブログ一覧</h1>
+      <button onClick={() => f()}>
+        rp
+      </button>
       <div className={styels.buttonContainer}>
         {blogList.map((blog) => (
           <button
