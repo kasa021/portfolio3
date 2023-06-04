@@ -3,6 +3,7 @@
   --color-background: #ebedf1;
   --color-text: #524e4e;
   --color-button: #e7f1f1;
+  --color-button2: #ffffff;
   --color-icon: #65c2c5;
   --color-sns: #000000;
   --color-area: #e4e9e9;
@@ -13,9 +14,10 @@
 }
 
 [data-theme="dark"] {
-  --color-background: #36404b;
+  --color-background: #31363b;
   --color-text: #d3d3d3;
   --color-button: #484d4c;
+  --color-button2: #010c0a;
   --color-icon: #61afb9;
   --color-sns: #c5b8b8;
   --color-area: #5a5a5a;
