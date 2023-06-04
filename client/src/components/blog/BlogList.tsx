@@ -1,26 +1,36 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import styels from "./BlogList.module.css";
+import { setBlogList } from "./BlogSlice";
+
+interface RootState {
+  blog: {
+    list: string[];
+  };
+}
 
 
 export const BlogList = () => {
-  const [blogList, setBlogList] = useState<string[]>([]);
-   const navigate = useNavigate();
+  const blogList = useSelector((state: RootState) => state.blog.list);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBlogList = async () => {
-      try {
-        const response = await fetch("http://localhost:3001/blog");
-        const data = await response.json();
-        setBlogList(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching blog list:", error);
+      if (blogList.length === 0) {
+        try {
+          const response = await axios.get("http://localhost:3001/blog");
+          dispatch(setBlogList(response.data));
+        } catch (error) {
+          console.error("Error fetching blog list:", error);
+        }
       }
     };
-
     fetchBlogList();
-  }, []);
+  }, [blogList, dispatch]);
 
   const handleClick = async (filename: string) => {
     try {
@@ -36,13 +46,18 @@ export const BlogList = () => {
   };
 
   return (
-    <div>
-      {/* ブログリストをマップしてボタンを表示 */}
-      {blogList.map((blog) => (
-        <button key={blog} onClick={() => handleClick(blog)}>
-          {blog}
-        </button>
-      ))}
+    <div className={styels.container}>
+      <div>
+        {blogList.map((blog) => (
+          <button
+            key={blog}
+            onClick={() => handleClick(blog)}
+            className={styels.button}
+          >
+            {blog}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
