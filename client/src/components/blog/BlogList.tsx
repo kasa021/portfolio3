@@ -12,25 +12,26 @@ interface RootState {
   };
 }
 
-
 export const BlogList = () => {
-  const blogList = useSelector((state: RootState) => state.blog.list);  // useSelectorを使ってReduxのstoreからブログ一覧を取得
-  const dispatch = useDispatch();  // useDispatchを使ってReduxのstoreにアクセス
+  const blogList = useSelector((state: RootState) => state.blog.list); // useSelectorを使ってReduxのstoreからブログ一覧を取得
+  const dispatch = useDispatch(); // useDispatchを使ってReduxのstoreにアクセス
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchBlogList = async () => {  // ブログ一覧を取得する関数を定義
-      if (blogList.length === 0) {  // ブログ一覧が空の場合のみ取得する
+    const fetchBlogList = async () => {
+      // ブログ一覧を取得する関数を定義
+      if (blogList.length === 0) {
+        // ブログ一覧が空の場合のみ取得する
         try {
           const response = await axios.get("http://localhost:3001/api/blog");
-          dispatch(setBlogList(response.data));  // ブログ一覧をReduxのstoreに保存
+          dispatch(setBlogList(response.data)); // ブログ一覧をReduxのstoreに保存
         } catch (error) {
           console.error("Error fetching blog list:", error);
         }
       }
     };
     fetchBlogList();
-  }, [blogList, dispatch]);  // blogListとdispatchをuseEffectの第二引数に指定
+  }, [blogList, dispatch]); // blogListとdispatchをuseEffectの第二引数に指定
 
   const handleClick = async (filename: string) => {
     try {
@@ -45,16 +46,9 @@ export const BlogList = () => {
     }
   };
 
-  const f = () => {
-    navigate(`/blog/2021-08-01-1.md`);
-  };
-
   return (
     <div className={styels.container}>
       <h1>ブログ一覧</h1>
-      <button onClick={() => f()}>
-        rp
-      </button>
       <div className={styels.buttonContainer}>
         {blogList.map((blog) => (
           <button
