@@ -21,7 +21,7 @@ export const Home = () => {
         />
       </div>
       <div className={styles.title}>
-        <h1>Kasa</h1>
+        <h1>kAsA</h1>
       </div>
       <div className={styles.description}>
         <button onClick={handleGithubClick} className={styles.button}>

@@ -3,24 +3,28 @@
   --color-background: #ebedf1;
   --color-text: #524e4e;
   --color-button: #e7f1f1;
+  --color-button2: #ffffff;
   --color-icon: #65c2c5;
   --color-sns: #000000;
   --color-area: #e4e9e9;
   --color-border: #98a0a0;
   --color-hover: #a9b3b3;
   --color-green: #49c468;
+  --color-inline: #ffffff;
 }
 
 [data-theme="dark"] {
-  --color-background: #36404b;
-  --color-text: #d3d3d3;
+  --color-background: #15202B;
+  --color-text: #ffffff;
   --color-button: #484d4c;
+  --color-button2: #010c0a;
   --color-icon: #61afb9;
   --color-sns: #c5b8b8;
   --color-area: #5a5a5a;
   --color-border: #5a5a5a;
-  --color-hover: #5a5a5a;
+  --color-hover: #8899A6;
   --color-green: #3fca79;
+  --color-inline: #272822;
 }
 
 
