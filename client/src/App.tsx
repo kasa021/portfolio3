@@ -22,7 +22,7 @@ function App() {
         <Router>
           <ThemeProvider>
             <Helmet>
-              <title>kasa&apos;s portfolio</title>
+              <title>kAsA&apos;s portfolio</title>
             </Helmet>
             <Header />
             <Routes>
