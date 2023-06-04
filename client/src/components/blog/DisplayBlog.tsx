@@ -1,33 +1,27 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import styles from "./DisplayBlog.module.css";
 
 export const DisplayBlog = () => {
-  const location = useLocation();
   const { filename } = useParams();
-  const [markdownContent, setMarkdownContent] = useState(
-    location?.state?.markdownContent || ""
-  );
+  const [markdownContent, setMarkdownContent] = useState("");
 
   useEffect(() => {
-    const fetchMarkdownContent = async () => {
+    const fetchMarkdown = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/api/blog/${filename}`
+          `http://localhost:3001/api/blog/${filename}.md`
         );
         setMarkdownContent(response.data);
       } catch (error) {
         console.error("Error fetching markdown file:", error);
       }
     };
-
-    if (!markdownContent) {
-      fetchMarkdownContent();
-    }
-  }, [filename, markdownContent]);
+    fetchMarkdown();
+  }, [filename]);
 
   return (
     <div className={styles.container}>

@@ -33,18 +33,6 @@ export const BlogList = () => {
     fetchBlogList();
   }, [blogList, dispatch]); // blogListとdispatchをuseEffectの第二引数に指定
 
-  const handleClick = async (filename: string) => {
-    try {
-      const response = await axios.get(
-        `http://localhost:3001/api/blog/${filename}`
-      );
-      navigate(`/blog/${filename.slice(0, -3)}`, {
-        state: { markdownContent: response.data },
-      });
-    } catch (error) {
-      console.error("Error fetching markdown file:", error);
-    }
-  };
 
   return (
     <div className={styels.container}>
@@ -53,7 +41,7 @@ export const BlogList = () => {
         {blogList.map((blog) => (
           <button
             key={blog}
-            onClick={() => handleClick(blog)}
+            onClick={() => navigate(`/blog/${blog.slice(0, -3)}`)}
             className={styels.button}
           >
             {blog.slice(0, -3)}
