@@ -11,7 +11,10 @@ pre {
     border-radius: 0.5rem;
 }
 
-pre code {
+li > code {
+    font-family: Consolas,monaco,monospace;
+    background-color: var(--color-inline);
+    border-radius: 0.5rem;
 }
 
 pre > div{

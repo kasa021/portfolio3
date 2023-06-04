@@ -10,7 +10,7 @@
   --color-border: #98a0a0;
   --color-hover: #a9b3b3;
   --color-green: #49c468;
-  --color-inline: #e7f1f1;
+  --color-inline: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -24,7 +24,7 @@
   --color-border: #5a5a5a;
   --color-hover: #8899A6;
   --color-green: #3fca79;
-  --color-inline: #5a5a5a;
+  --color-inline: #272822;
 }
 
 
