@@ -7,7 +7,8 @@ type ThemeProviderProps = {
 };
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const initialTheme = localStorage.getItem("theme") || "light";
+  const [theme, setTheme] = useState(initialTheme);
 
   useEffect(() => {
     document.body.dataset.theme = theme;
