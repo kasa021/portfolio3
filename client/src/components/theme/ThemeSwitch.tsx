@@ -6,14 +6,18 @@ import styles from "./ThemeSwitch.module.css";
 
 export const ThemeSwitch: React.FC = () => {
   const themeContext = useContext(ThemeContext);
+
+  useEffect(() => {
+    if (themeContext && themeContext.theme) {
+      localStorage.setItem("theme", themeContext.theme);
+    }
+  }, [themeContext]);
+
   if (!themeContext) {
     return null;
   }
-  const { theme, setTheme } = themeContext;
 
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  const { theme, setTheme } = themeContext;
 
   return (
     <button
