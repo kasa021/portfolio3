@@ -3,7 +3,7 @@ import { join } from 'path';
 import { Response } from 'express';
 import * as fs from 'fs';
 
-@Controller('blog')
+@Controller('api/blog')
 export class BlogController {
   @Get()
   getMarkdownFiles(@Res() res: Response) {
