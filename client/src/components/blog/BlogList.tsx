@@ -1,21 +1,18 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styels from "./BlogList.module.css";
-import { setBlogList } from "./BlogSlice";
 
-interface RootState {
-  blog: {
-    list: string[];
-  };
+interface BlogListItem {
+  slug: string;
+  title: string;
 }
 
+
 export const BlogList = () => {
-  const blogList = useSelector((state: RootState) => state.blog.list); // useSelectorを使ってReduxのstoreからブログ一覧を取得
-  const dispatch = useDispatch(); // useDispatchを使ってReduxのstoreにアクセス
   const navigate = useNavigate();
+  const [blogList, setBlogList] = useState<BlogListItem[]>([]);
 
   useEffect(() => {
     const fetchBlogList = async () => {
@@ -24,14 +21,14 @@ export const BlogList = () => {
         // ブログ一覧が空の場合のみ取得する
         try {
           const response = await axios.get("http://localhost:3001/api/blog");
-          dispatch(setBlogList(response.data)); // ブログ一覧をReduxのstoreに保存
+          setBlogList(response.data);
         } catch (error) {
           console.error("Error fetching blog list:", error);
         }
       }
     };
     fetchBlogList();
-  }, [blogList, dispatch]); // blogListとdispatchをuseEffectの第二引数に指定
+  }, []);
 
 
   return (
@@ -40,11 +37,11 @@ export const BlogList = () => {
       <div className={styels.buttonContainer}>
         {blogList.map((blog) => (
           <button
-            key={blog}
-            onClick={() => navigate(`/blog/${blog.slice(0, -3)}`)}
             className={styels.button}
+            key={blog.slug}
+            onClick={() => navigate(`/blog/${blog.slug}`)}
           >
-            {blog.slice(0, -3)}
+            {blog.title}
           </button>
         ))}
       </div>
