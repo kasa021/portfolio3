@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import styels from "./BlogList.module.css";
 
@@ -11,7 +11,6 @@ interface BlogListItem {
 
 
 export const BlogList = () => {
-  const navigate = useNavigate();
   const [blogList, setBlogList] = useState<BlogListItem[]>([]);
 
   useEffect(() => {
@@ -34,15 +33,15 @@ export const BlogList = () => {
   return (
     <div className={styels.container}>
       <h1>ブログ一覧</h1>
-      <div className={styels.buttonContainer}>
+      <div className={styels.linkCardContainer}>
         {blogList.map((blog) => (
-          <button
-            className={styels.button}
+          <Link
+            className={styels.linkCard}
             key={blog.slug}
-            onClick={() => navigate(`/blog/${blog.slug}`)}
+            to={`/blog/${blog.slug}`}
           >
             {blog.title}
-          </button>
+          </ Link>
         ))}
       </div>
     </div>
