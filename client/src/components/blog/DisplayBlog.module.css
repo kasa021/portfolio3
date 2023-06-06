@@ -63,3 +63,7 @@ a:hover {
   color: var(--color-hover);
   text-decoration: underline;
 }
+
+h1,h2,h3,h4{
+    scroll-margin-top: 5rem;
+}
