@@ -7,10 +7,13 @@ import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import remarkGfm from "remark-gfm";
 
 import styles from "./DisplayBlog.module.css";
+import { getHeadings } from "./sidebar/getHeading";
+import { Toc } from "./sidebar/Toc";
 
 export const DisplayBlog = () => {
   const { filename } = useParams();
   const [markdownContent, setMarkdownContent] = useState("");
+  const [blogHeadings, setBlogHeadings] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchMarkdown = async () => {
@@ -22,42 +25,51 @@ export const DisplayBlog = () => {
       } catch (error) {
         console.error("Error fetching markdown file:", error);
       }
-      
     };
     fetchMarkdown();
   }, [filename]);
 
+  useEffect(() => {
+    const headings = getHeadings();
+    setBlogHeadings(headings);
+    console.log(headings);
+  }, [markdownContent]);
 
   return (
     <div className={styles.container}>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          code({ node, inline, className, children, style, ...props }) {
-            const match = /language-(\w+)/.exec(className || "");
-            return !inline && match ? (
-              <SyntaxHighlighter
-                style={monokai}
-                language={match[1]}
-                PreTag="div"
-                codeTagProps={{
-                  style: { fontFamily: "Consolas,monaco,monospace" },
-                }}
-                {...props}
-              >
-                {String(children).replace(/\n$/, "")}
-              </SyntaxHighlighter>
-            ) : (
-              <code className={className} {...props}>
-                {children}
-              </code>
-            );
-          },
-        }}
-      >
-        {markdownContent}
-      </ReactMarkdown>
-      {/* <Toc toc={blog.toc} /> */}
+      <div className={styles.Content}>
+        <ReactMarkdown
+          className={styles.markdown}
+          remarkPlugins={[remarkGfm]}
+          components={{
+            code({ node, inline, className, children, style, ...props }) {
+              const match = /language-(\w+)/.exec(className || "");
+              return !inline && match ? (
+                <SyntaxHighlighter
+                  style={monokai}
+                  language={match[1]}
+                  PreTag="div"
+                  codeTagProps={{
+                    style: { fontFamily: "Consolas,monaco,monospace" },
+                  }}
+                  {...props}
+                >
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              );
+            },
+          }}
+        >
+          {markdownContent}
+        </ReactMarkdown>
+      </div>
+      <div className={styles.Toc}>
+        <Toc toc={blogHeadings} />
+      </div>
     </div>
   );
 };
