@@ -10,10 +10,15 @@ import styles from "./DisplayBlog.module.css";
 import { getHeadings } from "./sidebar/getHeading";
 import { Toc } from "./sidebar/Toc";
 
+interface TocProps {
+  text: string;
+  depth: number;
+}
+
 export const DisplayBlog = () => {
   const { filename } = useParams();
   const [markdownContent, setMarkdownContent] = useState("");
-  const [blogHeadings, setBlogHeadings] = useState<string[]>([]);
+  const [blogHeadings, setBlogHeadings] = useState<TocProps[]>([]);
 
   useEffect(() => {
     const fetchMarkdown = async () => {
@@ -32,7 +37,6 @@ export const DisplayBlog = () => {
   useEffect(() => {
     const headings = getHeadings();
     setBlogHeadings(headings);
-    console.log(headings);
   }, [markdownContent]);
 
   return (
