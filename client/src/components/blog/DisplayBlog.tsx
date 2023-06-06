@@ -16,15 +16,17 @@ export const DisplayBlog = () => {
     const fetchMarkdown = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/api/blog/${filename}.md`
+          `http://localhost:3001/api/blog/${filename}`
         );
         setMarkdownContent(response.data);
       } catch (error) {
         console.error("Error fetching markdown file:", error);
       }
+      
     };
     fetchMarkdown();
   }, [filename]);
+
 
   return (
     <div className={styles.container}>
@@ -55,6 +57,7 @@ export const DisplayBlog = () => {
       >
         {markdownContent}
       </ReactMarkdown>
+      {/* <Toc toc={blog.toc} /> */}
     </div>
   );
 };
