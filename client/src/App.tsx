@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { DisplayBlog } from "./components/blog/DisplayBlog";
-import store from "./components/blog/store";
 import { Footer } from "./components/templates/Footer";
 import { Header } from "./components/templates/Header";
 import { ThemeProvider } from "./components/theme/ThemeProvider";
@@ -18,7 +17,6 @@ import { Home } from "./pages/Home";
 function App() {
   return (
     <>
-      <Provider store={store}>
         <Router>
           <ThemeProvider>
             <Helmet>
@@ -35,7 +33,6 @@ function App() {
             <Footer />
           </ThemeProvider>
         </Router>
-      </Provider>
     </>
   );
 }

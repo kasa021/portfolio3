@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@types/styled-components": "^5.1.26",
     "axios": "^1.4.0",
+    "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
@@ -20,7 +21,9 @@
     "react-markdown": "^8.0.7",
     "react-redux": "^8.0.7",
     "react-syntax-highlighter": "^15.5.0",
+    "remark-extract-toc": "^1.1.0",
     "remark-gfm": "^3.0.1",
+    "remark-slug": "^7.0.1",
     "styled-components": "^5.3.11",
     "use-local-storage": "^3.0.0"
   },
