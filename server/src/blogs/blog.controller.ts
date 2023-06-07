@@ -3,6 +3,22 @@ import { join } from 'path';
 import { Response } from 'express';
 import * as fs from 'fs';
 
+interface BlogListItem {
+  slug: string;
+  title: string;
+}
+
+const getTitleFromMarkdown = (markdown: string): string => {
+  const titleRegex = /^#\s(.*)$/gm;
+  const titleMatch = titleRegex.exec(markdown);
+
+  if (titleMatch === null) {
+    return '';
+  }
+
+  return titleMatch[1];
+};
+
 @Controller('api/blog')
 export class BlogController {
   @Get()
@@ -17,7 +33,16 @@ export class BlogController {
 
       const markdownFiles = files.filter((file) => file.endsWith('.md'));
 
-      return res.json(markdownFiles);
+      const blogListItems: BlogListItem[] = markdownFiles.map((file) => {
+        const markdown = fs.readFileSync(join(directoryPath, file), 'utf8');
+
+        return {
+          slug: file.replace('.md', ''),
+          title: getTitleFromMarkdown(markdown),
+        };
+      });
+
+      return res.send(blogListItems);
     });
   }
 
@@ -32,7 +57,7 @@ export class BlogController {
       '..',
       'static',
       'blogs',
-      `${filename}`,
+      `${filename}.md`,
     );
 
     fs.readFile(mdFilePath, 'utf8', (err, data) => {
