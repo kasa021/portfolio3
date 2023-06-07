@@ -1,44 +1,47 @@
+/* styles.module.css */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 100%;
-    width: min(1024px,calc(100% - 2rem));
-    margin: 4rem 0 0 0;
-    padding: 0 1rem;
+  --linkCardContainerGap: 20px;
+  padding: 20px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  margin-top: 4rem;
 }
 
-.button {
-    display: inline-flex;
-    flex: 0 0 50%;
+.linkCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--linkCardContainerGap);
+}
+
+.linkCard {
+    flex: 0 0 calc((100% - var(--linkCardContainerGap)) / 2);
+    max-width: calc((100% - var(--linkCardContainerGap)) / 2);
+    min-height: 200px; /* 固定値から相対的な値に変更 */
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.8);
     box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-    width: 25rem;
-    border-radius: 0.5rem;
-    margin: 1rem;
-    background-color: var(--color-button2);
-    color: var(--color-text);
-    font-size: 1.5rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    border: none;
-}
-
-.button:hover {
-    transform: translateY(-0.5rem);
-}
-
-.buttonContainer {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
     justify-content: center;
-    height: 100%;
-    width: min(1024px,calc(100% - 2rem));
-    margin: 4rem 0;
-    padding: 0 1rem;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+
+
+.linkCard h1 {
+  font-size: 20px;
+}
+
+.linkCard:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1), -6px -6px 20px rgba(255, 255, 255, 0.8);
+  background-color: #ffffff;
+  text-decoration: none;
 }
