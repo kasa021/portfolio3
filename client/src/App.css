@@ -11,6 +11,7 @@
   --color-hover: #a9b3b3;
   --color-green: #49c468;
   --color-inline: #ffffff;
+  --linkCard:#f8f8f8;
 }
 
 [data-theme="dark"] {
@@ -25,6 +26,7 @@
   --color-hover: #8899A6;
   --color-green: #3fca79;
   --color-inline: #272822;
+  --linkCard:#2d3033;
 }
 
 
