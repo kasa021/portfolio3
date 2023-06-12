@@ -21,7 +21,7 @@
     max-width: calc((100% - var(--linkCardContainerGap)) / 2);
     min-height: 200px; /* 固定値から相対的な値に変更 */
     padding: 10px;
-    background-color: #f8f8f8;
+    background-color: var(--linkCard);
     border-radius: 10px;
     transition: all 0.3s ease;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.8);
