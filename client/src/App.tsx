@@ -16,22 +16,22 @@ import { Home } from "./pages/Home";
 function App() {
   return (
     <>
-        <Router>
-          <ThemeProvider>
-            <Helmet>
-              <title>kAsA&apos;s portfolio</title>
-            </Helmet>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:filename" element={<DisplayBlog />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-            <Footer />
-          </ThemeProvider>
-        </Router>
+      <Router>
+        <ThemeProvider>
+          <Helmet>
+            <title>kAsA&apos;s portfolio</title>
+          </Helmet>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:filename" element={<DisplayBlog />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </ThemeProvider>
+      </Router>
     </>
   );
 }
