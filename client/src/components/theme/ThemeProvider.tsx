@@ -9,12 +9,12 @@ type ThemeProviderProps = {
 type Theme = "light" | "dark";
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const initialTheme = localStorage.getItem("theme") as Theme || "light";
+  const initialTheme = (localStorage.getItem("theme") as Theme) || "light";
   const [theme, setTheme] = useState(initialTheme);
 
   useEffect(() => {
     document.body.dataset.theme = theme;
-  }, [theme]);  
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

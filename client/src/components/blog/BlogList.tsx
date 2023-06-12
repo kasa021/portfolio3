@@ -9,7 +9,6 @@ interface BlogListItem {
   title: string;
 }
 
-
 export const BlogList = () => {
   const [blogList, setBlogList] = useState<BlogListItem[]>([]);
 
@@ -29,7 +28,6 @@ export const BlogList = () => {
     fetchBlogList();
   }, []);
 
-
   return (
     <div className={styels.container}>
       <h1>ブログ一覧</h1>
@@ -41,7 +39,7 @@ export const BlogList = () => {
             to={`/blog/${blog.slug}`}
           >
             {blog.title}
-          </ Link>
+          </Link>
         ))}
       </div>
     </div>
