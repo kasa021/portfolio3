@@ -1,10 +1,14 @@
+import "katex/dist/katex.min.css";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 
 import styles from "./DisplayBlog.module.css";
 import { getHeadings } from "./sidebar/getHeading";
@@ -44,7 +48,8 @@ export const DisplayBlog = () => {
       <div className={styles.Content}>
         <ReactMarkdown
           className={styles.markdown}
-          remarkPlugins={[remarkGfm]}
+          remarkPlugins={[remarkGfm, remarkMath]}
+          rehypePlugins={[rehypeKatex]}
           components={{
             code({ node, inline, className, children, style, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
