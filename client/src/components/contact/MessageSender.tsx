@@ -27,7 +27,7 @@ export const handleSubmit = async (
     };
 
     axios
-      .post("http://localhost:3001/message", data)
+      .post(`${import.meta.env.VITE_SERVER_BASE_URL}/message`, data)
       .then((response) => {
         console.log(response);
         alert("送信しました");
