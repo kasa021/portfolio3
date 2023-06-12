@@ -28,7 +28,7 @@ export const DisplayBlog = () => {
     const fetchMarkdown = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/api/blog/${filename}`
+          `${import.meta.env.SERVER_BASE_URL}/api/blog/${filename}`
         );
         setMarkdownContent(response.data);
       } catch (error) {
