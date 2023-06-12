@@ -18,7 +18,7 @@ export const BlogList = () => {
       if (blogList.length === 0) {
         // ブログ一覧が空の場合のみ取得する
         try {
-          const response = await axios.get("http://localhost:3001/api/blog");
+          const response = await axios.get(`${import.meta.env.SERVER_BASE_URL}/api/blog`);
           setBlogList(response.data);
         } catch (error) {
           console.error("Error fetching blog list:", error);
