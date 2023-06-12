@@ -6,7 +6,11 @@ async function bootstrap() {
   dotenv.config();
 
   const app = await NestFactory.create(AppModule);
-  app.enableCors();
+  app.enableCors({
+    origin:
+      process.env.NODE_ENV === 'production' ? 'https://kasa-ame.com' : '*',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+  });
   await app.listen(3000);
 }
 
