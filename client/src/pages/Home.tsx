@@ -8,7 +8,7 @@ export const Home = () => {
   };
 
   const handleTwitterClick = () => {
-    window.open("https://twitter.com/kAsA02_", "_blank");
+    window.open("https://twitter.com/kasa_ame__", "_blank");
   };
 
   return (
