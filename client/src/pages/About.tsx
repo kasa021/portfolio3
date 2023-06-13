@@ -1,7 +1,5 @@
+import { AboutMe } from "../components/about/AboutMe";
+
 export const About = () => {
-  return (
-    <div>
-      <h1>About</h1>
-    </div>
-  );
+  return <AboutMe />;
 };
