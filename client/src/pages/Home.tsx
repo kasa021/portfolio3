@@ -1,5 +1,7 @@
 import { BsGithub, BsTwitter } from "react-icons/bs";
 
+import styles from "./Home.module.css";
+
 export const Home = () => {
   const handleGithubClick = () => {
     window.open("https://github.com/kasa021", "_blank");
@@ -25,8 +27,8 @@ export const Home = () => {
         <button onClick={handleGithubClick} className={styles.button}>
           <BsGithub className={styles.icon} />
         </button>
-        <button onClick={handleTwitterClick}>
-          <BsTwitter />
+        <button onClick={handleTwitterClick} className={styles.button}>
+          <BsTwitter className={styles.icon} />
         </button>
       </div>
     </div>
