@@ -1,0 +1,85 @@
+.contact {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 10;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 5rem;
+}
+
+.messageBox{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 12rem;
+}
+
+.box .name{
+}
+
+.box .innerBox{
+    display: flex;
+    justify-content: center;
+    height: 2rem;
+}
+
+.box .email {
+}
+
+.box .message {
+    text-align: center;
+}
+
+.box .innerTextBox {
+    display: flex;
+    justify-content: center;
+}
+
+.section {
+    padding: 4rem 0 0 0;
+    width: min(1024px,calc(100% - 2rem));
+}
+
+.section .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 30rem;
+}
+
+.inputs {
+    width: 50vw;
+    height: 2rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    background-color: var(--color-area);
+    color: var(--color-text);
+}
+
+.textarea {
+    width: 50vw;
+    height: 10rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    background-color: var(--color-area);
+    color: var(--color-text);
+}
+
+
+.btn {
+    width: 5rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    background-color: var(--color-button);
+    color: var(--color-text);
+}
+

@@ -1,0 +1,53 @@
+.toc {
+  width: 15rem;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border:none;
+}
+
+.tocTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.tocList {
+  margin-top: 10px;
+  height: 700px; /* 好みの高さに調整してください */
+  overflow-y: scroll; /* コンテンツがはみ出た場合にスクロールバーを表示する */
+}
+
+
+.tocItem {
+  margin-bottom: 5px;
+}
+
+.tocLink {
+  color: #333;
+  text-decoration: none;
+}
+
+.tocLink:hover {
+  text-decoration: underline;
+}
+
+.tocList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.indent1 {
+  margin-left: 12px;
+}
+
+.indent2 {
+  margin-left: 24px;
+}
+
+.indent3 {
+  margin-left: 36px;
+}
+
+/* 以降、必要なだけ見出しの深さに対応するインデントクラスを追加してください */
+

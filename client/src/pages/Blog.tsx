@@ -1,7 +1,5 @@
+import { BlogList } from "../components/blog/BlogList";
+
 export const Blog = () => {
-  return (
-    <div>
-      <h1>Blog</h1>
-    </div>
-  );
+  return <BlogList />;
 };
