@@ -12,6 +12,7 @@
   --color-green: #49c468;
   --color-inline: #ffffff;
   --linkCard:#f8f8f8;
+  font-family: sans-serif;
 }
 
 [data-theme="dark"] {
