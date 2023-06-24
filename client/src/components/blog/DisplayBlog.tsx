@@ -7,9 +7,11 @@ import { useParams } from "react-router-dom";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import rehypeKatex from "rehype-katex";
+import remarkDirective from "remark-directive";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
+import remarkCustomDirectives from "./directive";
 import styles from "./DisplayBlog.module.css";
 import { getHeadings } from "./sidebar/getHeading";
 import { Toc } from "./sidebar/Toc";
@@ -48,7 +50,7 @@ export const DisplayBlog = () => {
       <div className={styles.Content}>
         <ReactMarkdown
           className={styles.markdown}
-          remarkPlugins={[remarkGfm, remarkMath]}
+          remarkPlugins={[remarkGfm, remarkMath, remarkDirective, remarkCustomDirectives]}
           rehypePlugins={[rehypeKatex]}
           components={{
             code({ node, inline, className, children, style, ...props }) {
