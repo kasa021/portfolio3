@@ -14,7 +14,7 @@
 .Toc {
   position: sticky;
   top: 8rem;
-  height: 100vh;
+  height: fit-content;
   overflow-y: auto;
   width: 15rem;
 }
