@@ -11,7 +11,7 @@ async function bootstrap() {
       process.env.NODE_ENV === 'production' ? 'https://kasa-ame.com' : '*',
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
   });
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 
 bootstrap();
